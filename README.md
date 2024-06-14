@@ -36,11 +36,15 @@ Input Parameters:
 ### If Collision Data At Tile
 #### Checks a tile for a selected collision mask and executes events
 
-Does not support tile stacking! This plugin checks for equivalence, instead of checking if a tile contains a selected collision mask. I hope to support this in the future, but I was unable to figure out a masking solution that easily fit all tile types.\
-\
-Does not support slopes! All other tile types, including ladders and spare collision tiles, are supported.
+Supports all tile types, including slopes and spare tiles. Supports tile stacking.
 
 Input Parameters:
+- `Tile X` : X position of the tile to check
+- `Tile Y` : Y position of the tile to check
+- `Tile Collision Mask` : Collision mask to check for
+- `True | False` : Events to be executed based on the result of the check
+
+ <img width="514" alt="Screenshot 2024-06-13 at 8 31 05 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/50217e44-c914-4549-abad-43e36859f2ba">
 
 ### Store Collision Data In Variable
 #### Stores the collision data of a tile into a target variable
@@ -51,5 +55,60 @@ Input Parameters:
 - `Target Variable` : A variable to store the collision data
 
 <img width="534" alt="Screenshot 2024-06-13 at 6 57 14 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/cde7adf7-ba7f-46c8-90dc-b23d186c8fad">
+
+## Submap Plugins
+
+### Background Submap
+#### Copies a region of background tiles to another position on the background
+
+⚠️ **This plugin does not support scrolling!**\
+  Changes to the background will be reset when scrolled offscreen.\
+\
+⚠️ **Destination coordinates are wrapped!**\
+  Changes to the background will repeat every 32 tiles.\
+\
+Input Parameters:
+- `Source X` : X position of the tile to copy
+- `Source Y` : Y position of the tile to copy
+- `Destination X` : X position of the tile to replace
+- `Destination Y` : Y position of the tile to replace
+- `Submap Width` : Width of the submap in tiles
+- `Submap Height` : Height of the submap in tiles
+
+<img width="516" alt="Screenshot 2024-06-14 at 4 16 28 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/800c9430-8e10-4e4b-969a-a72c56e13260">
+
+### Overlay to Background Submap
+#### Copies a region of overlay tiles to the background
+
+⚠️ **This plugin does not support scrolling!**\
+  Changes to the background will be reset when scrolled offscreen.\
+\
+⚠️ **Destination coordinates are wrapped!**\
+  Changes to the background will repeat every 32 tiles.\
+\
+Input Parameters:
+- `Overlay X` : X position of the tile to copy
+- `Overlay Y` : Y position of the tile to copy
+- `Background X` : X position of the tile to replace
+- `Background Y` : Y position of the tile to replace
+- `Submap Width` : Width of the submap in tiles
+- `Submap Height` : Height of the submap in tiles
+
+<img width="516" alt="Screenshot 2024-06-14 at 4 19 49 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/962e5af0-9b63-4d18-b0c5-71719c225e59">
+
+### Overlay Submap
+#### Copies a region of background tiles to the overlay
+
+A simple event interface for GBVM Operation `VM_OVERLAY_SET_SUBMAP_EX`\
+\
+Input Parameters:
+- `Background X` : X position of the tile to copy
+- `Background Y` : Y position of the tile to copy
+- `Overlay X` : X position of the tile to replace
+- `Overlay Y` : Y position of the tile to replace
+- `Submap Width` : Width of the submap in tiles
+- `Submap Height` : Height of the submap in tiles
+
+<img width="516" alt="Screenshot 2024-06-14 at 4 24 58 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/910f6571-eaaf-4002-a7e7-388d0f953c3c">
 
 
