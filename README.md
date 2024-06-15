@@ -5,7 +5,10 @@ These plugins were made and tested with GB Studio 4 Beta-2.\
 \
 GB Studio 4 is still in active development. These plugins are subject to change to ensure they work with the official release of GBS4, whenever that happens.\
 \
-These plugins are not compatible with earlier versions of GB Studio. This is due to the introduction of `ScriptValue` fields in GBS4, which these plugins make use of.
+These plugins are not compatible with earlier versions of GB Studio. This is due to the introduction of `ScriptValue` fields in GBS4, which these plugins make use of.\
+\
+Many thanks to [Bryan Rollins](https://bryanrollins.itch.io), [Hauntology](https://hauntology.itch.io), and [ZoneBooth](https://zone-booth.itch.io), for sharing their knowledge and code.
+#
 
 ## Actor Plugins
 
@@ -16,9 +19,11 @@ Also works for the player actor.\
 \
 Input Parameters:
 - `Target Actor` : The actor whose OnHit Script will be called
-- `Collision Group` : Selects which OnHit Script will be called -> [Player, Group1, Group2, Group3]
+- `Collision Group` : Selects which OnHit Script will be called
 
 <img width="532" alt="Screenshot 2024-06-13 at 6 38 24 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/4809f3fc-469e-4d7a-98b6-85c84518b1fd">
+
+#
 
 ### Store Actor ID In Variable
 #### Stores the ID of the selected actor into a target variable
@@ -31,6 +36,7 @@ Input Parameters:
 
 <img width="532" alt="Screenshot 2024-06-13 at 6 34 30 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/f53915d9-c6fe-4eeb-beef-7beb17b21715">
 
+#
 ## Collision Data Plugins
 
 ### If Collision Data At Tile
@@ -44,7 +50,9 @@ Input Parameters:
 - `Tile Collision Mask` : Collision mask to check for
 - `True | False` : Events to be executed based on the result of the check
 
- <img width="514" alt="Screenshot 2024-06-13 at 8 31 05 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/50217e44-c914-4549-abad-43e36859f2ba">
+<img width="514" alt="Screenshot 2024-06-13 at 8 31 05 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/50217e44-c914-4549-abad-43e36859f2ba">
+
+#
 
 ### Store Collision Data In Variable
 #### Stores the collision data of a tile into a target variable
@@ -55,6 +63,8 @@ Input Parameters:
 - `Target Variable` : A variable to store the collision data
 
 <img width="534" alt="Screenshot 2024-06-13 at 6 57 14 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/cde7adf7-ba7f-46c8-90dc-b23d186c8fad">
+
+#
 
 ## Submap Plugins
 
@@ -77,8 +87,12 @@ Input Parameters:
 
 <img width="516" alt="Screenshot 2024-06-14 at 4 16 28 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/800c9430-8e10-4e4b-969a-a72c56e13260">
 
+#
+
 ### Overlay to Background Submap
 #### Copies a region of overlay tiles to the background
+
+Based on code by [ZoneBooth](https://zone-booth.itch.io)
 
 ⚠️ **This plugin does not support scrolling!**\
   Changes to the background will be reset when scrolled offscreen.\
@@ -96,6 +110,8 @@ Input Parameters:
 
 <img width="516" alt="Screenshot 2024-06-14 at 4 19 49 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/962e5af0-9b63-4d18-b0c5-71719c225e59">
 
+#
+
 ### Overlay Submap
 #### Copies a region of background tiles to the overlay
 
@@ -110,5 +126,40 @@ Input Parameters:
 - `Submap Height` : Height of the submap in tiles
 
 <img width="516" alt="Screenshot 2024-06-14 at 4 24 58 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/910f6571-eaaf-4002-a7e7-388d0f953c3c">
+
+#
+
+## TopDown Tile Collisions
+#### An engine plugin that allows scripts to be automatically executed when colliding with tiles in TopDown
+
+Based on Platformer+ State Scripts by [Hauntology](https://hauntology.itch.io)\
+\
+Uses GB Studio's `player_iframes` to debounce collisions.\
+\
+Replaces the TopDown scene type.
+
+#
+
+### Attach TopDown Tile Collision Script
+#### Attach a script to collision with a selected tile type
+
+Input Parameters:
+- `Collision Type` : Collision tile type to attach script to
+- `Script` : Events to be executed when colliding with selected tile type
+  
+<img width="554" alt="Screenshot 2024-06-14 at 4 54 30 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/281c846e-f6e3-486b-a7e9-9f3fc31e1e6a">
+
+#
+
+### Clear TopDown Tile Collision Script
+#### Clear the script currently attached to a collision tile type
+
+Input Parameters:
+- `Collision Type` : Collision tile type to remove script from
+  
+<img width="552" alt="Screenshot 2024-06-14 at 4 57 33 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/cb84bd38-4717-4b15-885f-e86358a84844">
+
+#
+
 
 
