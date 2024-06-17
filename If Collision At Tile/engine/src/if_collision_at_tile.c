@@ -18,12 +18,20 @@ void if_collision_at_tile(SCRIPT_CTX * THIS) OLDCALL BANKED {
 
     if ((tx < image_tile_width) && (ty < image_tile_height)) {
         UBYTE tile = ReadBankedUBYTE(collision_ptr + (ty * (UINT16)image_tile_width) + tx, collision_bank);
-        if (tile < 0x80) {
-            *(UBYTE*)VM_REF_TO_PTR(FN_ARG2) = ((tile & 0xFF) == collision_mask);
+        // handle slopes
+        if (collision_mask == 0x60) {
+            *(UBYTE*)VM_REF_TO_PTR(FN_ARG2) = ((tile <= 0x70) && (tile & 0x60));
         } else {
-            *(UBYTE*)VM_REF_TO_PTR(FN_ARG2) = ((tile & 0xF0) == collision_mask);
+            if (collision_mask <= 0xF) {
+                // handle solids
+                *(UBYTE*)VM_REF_TO_PTR(FN_ARG2) = ((tile & 0xF) == collision_mask);
+            } else {
+                // handle spare tiles, ladder
+                *(UBYTE*)VM_REF_TO_PTR(FN_ARG2) = ((tile & 0xF0) == collision_mask);
+            }
         }
     } else {
-        *(UBYTE*)VM_REF_TO_PTR(FN_ARG2) = ((0xF & collision_mask) == collision_mask);
+        // o.o.b. returns true when checking for solids
+        *(UBYTE*)VM_REF_TO_PTR(FN_ARG2) = (collision_mask == 0xF);
     }
 }

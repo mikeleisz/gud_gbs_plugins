@@ -1,6 +1,6 @@
 const scriptValueHelpers = require("shared/lib/scriptValue/helpers");
 
-export const id = "GUD_COLLISION_AT_TILE";
+export const id = "GUD_EVENT_GET_COLLISION_AT_TILE";
 export const name = "Store Collision Data In Variable";
 export const groups = ["Gud GBS Plugins", "Collision"];
 export const subGroups = {

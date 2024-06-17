@@ -1,4 +1,4 @@
-export const id = "GUD_ACTOR_ON_HIT";
+export const id = "GUD_EVENT_ACTOR_ON_HIT";
 export const name = "Call Actor OnHit Script";
 export const groups = ["Gud GBS Plugins", "EVENT_GROUP_ACTOR"];
 export const subGroups = {

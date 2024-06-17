@@ -1,7 +1,7 @@
 const l10n = require("../helpers/l10n").default;
 const scriptValueHelpers = require("shared/lib/scriptValue/helpers");
 
-export const id = "GUD_IF_COLLISION_AT_TILE";
+export const id = "GUD_EVENT_IF_COLLISION_AT_TILE";
 export const name = "If Collision Data At Tile";
 export const groups = ["Gud GBS Plugins", "Collision"];
 export const subGroups = {
@@ -13,7 +13,7 @@ export const autoLabel = (fetchArg, args) => {
   const x = fetchArg("tx");
   const y = fetchArg("ty");
   const mask = fetchArg("tileMask");
-  return `If Tile Collision Data at (${x}, ${y}) == 0x${Number(mask).toString(16).toUpperCase()}`;
+  return `If Tile Collision Data 0x${Number(mask).toString(16).toUpperCase()} at (${x}, ${y})`;
 };
 
 export const fields = [
@@ -57,6 +57,7 @@ export const fields = [
           [0x4, "Collision Left - 0x4"],
           [0x8, "Collision Right - 0x8"],
           [0x10, "Ladder - 0x10"],
+          [0x60, "Slope - 0x60"],
           [0x80, "Spare 8 - 0x80"],
           [0x90, "Spare 9 - 0x90"],
           [0xA0, "Spare 10 - 0xA0"],

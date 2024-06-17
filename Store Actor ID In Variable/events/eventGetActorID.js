@@ -1,4 +1,4 @@
-export const id = "GUD_GET_ACTOR_ID";
+export const id = "GUD_EVENT_GET_ACTOR_ID";
 export const name = "Store Actor ID In Variable";
 export const groups = ["Gud GBS Plugins", "EVENT_GROUP_ACTOR"];
 export const subGroups = {
