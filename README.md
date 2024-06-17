@@ -1,13 +1,14 @@
 # Gud GBS Plugins
 ### A collection of plugins for GB Studio 4
 
-These plugins were made and tested with GB Studio 4 Beta-2.\
+- Made with GB Studio 4 Beta-2
+- Not compatible with earlier versions of GB Studio. These plugins implement `ScriptValue` fields, introduced in GBS4
+
 \
-GB Studio 4 is still in active development. These plugins are subject to change to ensure they work with the official release of GBS4, whenever that happens.\
+GB Studio 4 is still in development.\
+These plugins are subject to change to ensure they work with the official release of GBS4, whenever that happens.\
 \
-These plugins are not compatible with earlier versions of GB Studio. This is due to the introduction of `ScriptValue` fields in GBS4, which these plugins make use of.\
-\
-Many thanks to [Bryan Rollins](https://bryanrollins.itch.io), [Hauntology](https://hauntology.itch.io), and [ZoneBooth](https://zone-booth.itch.io), for sharing their knowledge and code.
+Many thanks to the [GB Studio Discord Community](https://discord.gg/bxerKnc) for sharing their knowledge and code.
 #
 
 ## Actor Plugins
@@ -17,7 +18,7 @@ Many thanks to [Bryan Rollins](https://bryanrollins.itch.io), [Hauntology](https
 
 Also works for the player actor.\
 \
-Input Parameters:
+**Input Parameters:**
 - `Target Actor` : The actor whose OnHit Script will be called
 - `Collision Group` : Selects which OnHit Script will be called
 
@@ -30,11 +31,11 @@ Input Parameters:
 
 Useful for targeting specific actors in GBVM operations or an engine editing context.\
 \
-Input Parameters:
+**Input Parameters:**
 - `Target Actor` : The actor whose ID will be retrieved
 - `Target Variable` : A variable to store the ID in
 
-<img width="532" alt="Screenshot 2024-06-13 at 6 34 30 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/f53915d9-c6fe-4eeb-beef-7beb17b21715">
+<img width="538" alt="Screenshot 2024-06-16 at 8 20 05 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/c1d6b7b0-fd7c-4b3d-b083-d57ad68f25a2">
 
 #
 ## Collision Data Plugins
@@ -44,20 +45,20 @@ Input Parameters:
 
 Supports all tile types, including slopes and spare tiles. Supports tile stacking.
 
-Input Parameters:
+**Input Parameters:**
 - `Tile X` : X position of the tile to check
 - `Tile Y` : Y position of the tile to check
 - `Tile Collision Mask` : Collision mask to check for
 - `True | False` : Events to be executed based on the result of the check
 
-<img width="514" alt="Screenshot 2024-06-13 at 8 31 05 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/50217e44-c914-4549-abad-43e36859f2ba">
+<img width="538" alt="Screenshot 2024-06-16 at 8 21 38 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/c470abd6-a84f-4014-8e01-13ec691e2705">
 
 #
 
 ### Store Collision Data In Variable
 #### Stores the collision data of a tile into a target variable
 
-Input Parameters:
+**Input Parameters:**
 - `Tile X` : X position of the target tile
 - `Tile Y` : Y position of the target tile
 - `Target Variable` : A variable to store the collision data
@@ -66,58 +67,14 @@ Input Parameters:
 
 #
 
-## Submap Plugins
+## Screen Plugins
 
-### Background Submap
-#### Copies a region of background tiles to another position on the background
-
-⚠️ **This plugin does not support scrolling!**\
-  Changes to the background will be reset when scrolled offscreen.\
-\
-⚠️ **Destination coordinates are wrapped!**\
-  Changes to the background will repeat every 32 tiles.\
-\
-Input Parameters:
-- `Source X` : X position of the tile to copy
-- `Source Y` : Y position of the tile to copy
-- `Destination X` : X position of the tile to replace
-- `Destination Y` : Y position of the tile to replace
-- `Submap Width` : Width of the submap in tiles
-- `Submap Height` : Height of the submap in tiles
-
-<img width="516" alt="Screenshot 2024-06-14 at 4 16 28 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/800c9430-8e10-4e4b-969a-a72c56e13260">
-
-#
-
-### Overlay to Background Submap
-#### Copies a region of overlay tiles to the background
-
-Based on code by [ZoneBooth](https://zone-booth.itch.io)
-
-⚠️ **This plugin does not support scrolling!**\
-  Changes to the background will be reset when scrolled offscreen.\
-\
-⚠️ **Destination coordinates are wrapped!**\
-  Changes to the background will repeat every 32 tiles.\
-\
-Input Parameters:
-- `Overlay X` : X position of the tile to copy
-- `Overlay Y` : Y position of the tile to copy
-- `Background X` : X position of the tile to replace
-- `Background Y` : Y position of the tile to replace
-- `Submap Width` : Width of the submap in tiles
-- `Submap Height` : Height of the submap in tiles
-
-<img width="516" alt="Screenshot 2024-06-14 at 4 19 49 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/962e5af0-9b63-4d18-b0c5-71719c225e59">
-
-#
-
-### Overlay Submap
+### Submap Overlay
 #### Copies a region of background tiles to the overlay
 
 A simple event interface for GBVM Operation `VM_OVERLAY_SET_SUBMAP_EX`\
 \
-Input Parameters:
+**Input Parameters:**
 - `Background X` : X position of the tile to copy
 - `Background Y` : Y position of the tile to copy
 - `Overlay X` : X position of the tile to replace
@@ -132,34 +89,62 @@ Input Parameters:
 ## TopDown Tile Collisions
 #### An engine plugin that allows scripts to be automatically executed when colliding with tiles in TopDown
 
-Based on Platformer+ State Scripts by [Hauntology](https://hauntology.itch.io)\
-\
-Uses GB Studio's `player_iframes` to debounce collisions.\
-\
-Replaces the TopDown scene type.
+- Based on Platformer+ State Scripts by [Hauntology](https://hauntology.itch.io)
+- Replaces TopDown scene type
+- Adds adjustable `Tile Collision IFrames` engine field
 
 #
 
 ### Attach TopDown Tile Collision Script
 #### Attach a script to collision with a selected tile type
 
-Input Parameters:
+**Input Parameters:**
 - `Collision Type` : Collision tile type to attach script to
-- `Script` : Events to be executed when colliding with selected tile type
-  
-<img width="554" alt="Screenshot 2024-06-14 at 4 54 30 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/281c846e-f6e3-486b-a7e9-9f3fc31e1e6a">
+- `Retrigger` : Sets if script should be re-executed when collision is continuous (debounced with `Tile Collision IFrames`)
+- `On Collision Script` : Events to be executed when colliding with selected tile type
+- `On Exit Collision Script` : Events to be executed exiting collision with selected tile type
+
+<img width="537" alt="Screenshot 2024-06-16 at 8 24 15 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/e73bb77f-533d-4ab2-afbb-7a9770365dea">
 
 #
 
 ### Clear TopDown Tile Collision Script
 #### Clear the script currently attached to a collision tile type
 
-Input Parameters:
+**Input Parameters:**
 - `Collision Type` : Collision tile type to remove script from
+- `Clear Script` : Selects which script to clear (`On Collision` | `On Exit Collision` | `Both` | `ALL`)
   
 <img width="552" alt="Screenshot 2024-06-14 at 4 57 33 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/cb84bd38-4717-4b15-885f-e86358a84844">
 
 #
 
+## Bad Plugins
+#### Plugins with quirks and caveats
 
+Use at your own risk 😈
+
+#
+
+### Background Submap
+#### Copies a region of background tiles to another position on the background
+
+⚠️ **Does not support scrolling!**\
+  Changes to the background will be reset when scrolled offscreen.\
+\
+⚠️ **Destination coordinates are wrapped!**\
+  Changes to the background will repeat every 32 tiles.\
+\
+⚠️ **Adds a NONBANKED function to Bank 0!**\
+  May cause overflow into Bank 1.\
+\
+**Input Parameters:**
+- `Source X` : X position of the tile to copy
+- `Source Y` : Y position of the tile to copy
+- `Destination X` : X position of the tile to replace
+- `Destination Y` : Y position of the tile to replace
+- `Submap Width` : Width of the submap in tiles
+- `Submap Height` : Height of the submap in tiles
+
+<img width="516" alt="Screenshot 2024-06-14 at 4 16 28 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/800c9430-8e10-4e4b-969a-a72c56e13260">
 
