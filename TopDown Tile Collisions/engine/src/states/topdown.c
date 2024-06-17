@@ -43,42 +43,33 @@ UBYTE index_to_mask(UBYTE index) BANKED;
 void call_collision_script(UBYTE index, UBYTE last_index) BANKED {
     UBYTE call_collision_script = false;
 
-    if (player_iframes == 0) {
-        if ((collision_events[index].retrigger == 1) && (collision_events[index].script_addr != 0)) {
-            player_iframes = tile_collision_iframes;
-            call_collision_script = true;
+    if (collision_events[index].script_addr != 0) {
+        if (player_iframes == 0) {
+            if (collision_events[index].retrigger) {
+                player_iframes = tile_collision_iframes;
+                call_collision_script = true;
+            }
+        } else if (player_iframes != 0) {
+            player_iframes--;
         }
-    }
-    else if (player_iframes != 0) {
-        player_iframes--;
-    }
 
-    if ((collision_events[index].script_addr != 0) && (index != last_index)) {
-        if (collision_events[index].retrigger == 1) {
-            player_iframes = tile_collision_iframes;
+        if (index != last_index) {
+            if (collision_events[index].retrigger) {
+                player_iframes = tile_collision_iframes;
+                call_collision_script = true;
+            } else if (!collision_events[index].retrigger && !collision_events[index].active) {
+                call_collision_script = true;
+            }
         }
-        call_collision_script = true;
-    }
 
-    if (call_collision_script == true) {
-        collision_events[index].active = true;
-        script_execute(collision_events[index].script_bank, collision_events[index].script_addr, 0, 0);
+        if (call_collision_script == true) {
+            collision_events[index].active = true;
+            script_execute(collision_events[index].script_bank, collision_events[index].script_addr, 0, 0);
+        }
     }
 }
 
 void check_collision_exit_script(UBYTE collision_data) BANKED {
-    // if (index == 255 && last_index != 255) {
-    //     if (collision_end_events[last_index].script_addr != 0) {
-    //         script_execute(collision_end_events[last_index].script_bank, collision_end_events[last_index].script_addr, 0, 0);
-    //     }
-    // } else {
-    //     if (index != last_index) {
-    //         if (last_index != 255 && collision_end_events[last_index].script_addr != 0) {
-    //             script_execute(collision_end_events[last_index].script_bank, collision_end_events[last_index].script_addr, 0, 0);
-    //         }
-    //     }
-    // }
-
     UBYTE script_index = 0;
     while (script_index != 15) {
         if (collision_events[script_index].active) {
