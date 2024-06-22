@@ -146,12 +146,12 @@ export const compile = (input, helpers) => {
     rpn.refSet(height);
     rpn.stop();
 
-    _stackPush(bgY);
-    _stackPush(bgX);
+    _stackPush(overlayX);
+    _stackPush(overlayY);
     _stackPush(width);
     _stackPush(height);
-    _stackPush(overlayY);
-    _stackPush(overlayX);
+    _stackPush(bgX);
+    _stackPush(bgY);
 
     appendRaw(`VM_OVERLAY_SET_SUBMAP_EX .ARG5`);
     _stackPop(6);
