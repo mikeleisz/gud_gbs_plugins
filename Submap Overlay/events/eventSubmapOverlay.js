@@ -148,8 +148,8 @@ export const compile = (input, helpers) => {
 
     _stackPush(bgY);
     _stackPush(bgX);
-    _stackPush(height);
     _stackPush(width);
+    _stackPush(height);
     _stackPush(overlayY);
     _stackPush(overlayX);
 
