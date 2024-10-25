@@ -13,7 +13,8 @@ export const autoLabel = (fetchArg, args) => {
   const x = fetchArg("tx");
   const y = fetchArg("ty");
   const mask = fetchArg("tileMask");
-  return `If Tile Collision Data 0x${Number(mask).toString(16).toUpperCase()} at (${x}, ${y})`;
+  const n = Number(mask).toString(16).toUpperCase();
+  return `If Tile Collision Data 0x${n == 3 ? 0 : n} at (${x}, ${y})`;
 };
 
 export const fields = [
@@ -66,6 +67,7 @@ export const fields = [
           [0xD0, "Spare 13 - 0xD0"],
           [0xE0, "Spare 14 - 0xE0"],
           [0xF0, "Spare 15 - 0xF0"],
+          [0x3, "No Collision - 0x0"],
         ],
         "defaultValue": 15
       }, 
