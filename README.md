@@ -62,6 +62,21 @@ Supports all tile types, including slopes and spare tiles. Supports tile stackin
 
 ## Screen Plugins
 
+### Submap Background
+#### Copies a region of background tiles to another position on the background
+
+**Input Parameters:**
+- `Source X` : X position of the tile to copy
+- `Source Y` : Y position of the tile to copy
+- `Destination X` : X position of the tile to replace
+- `Destination Y` : Y position of the tile to replace
+- `Submap Width` : Width of the submap in tiles
+- `Submap Height` : Height of the submap in tiles
+
+<img width="516" alt="Screenshot 2024-06-14 at 4 16 28 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/800c9430-8e10-4e4b-969a-a72c56e13260">
+
+#
+
 ### Submap Overlay
 #### Copies a region of background tiles to the overlay
 
@@ -137,33 +152,3 @@ A simple event interface for GBVM Operation `VM_OVERLAY_SET_SUBMAP_EX`\
 
 
 #
-
-## Bad Plugins
-#### Plugins with quirks and caveats
-
-Use at your own risk 😈
-
-#
-
-### Background Submap
-#### Copies a region of background tiles to another position on the background
-
-⚠️ **Does not support scrolling!**\
-  Changes to the background will be reset when scrolled offscreen.\
-\
-⚠️ **Destination coordinates are wrapped!**\
-  Changes to the background will repeat every 32 tiles.\
-\
-⚠️ **Adds a NONBANKED function to Bank 0!**\
-  May cause overflow into Bank 1.\
-\
-**Input Parameters:**
-- `Source X` : X position of the tile to copy
-- `Source Y` : Y position of the tile to copy
-- `Destination X` : X position of the tile to replace
-- `Destination Y` : Y position of the tile to replace
-- `Submap Width` : Width of the submap in tiles
-- `Submap Height` : Height of the submap in tiles
-
-<img width="516" alt="Screenshot 2024-06-14 at 4 16 28 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/800c9430-8e10-4e4b-969a-a72c56e13260">
-
