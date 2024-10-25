@@ -1,13 +1,6 @@
 # Gud GBS Plugins
-### A collection of plugins for GB Studio 4
+### A collection of plugins for GB Studio 4+
 
-- Made with GB Studio 4 Beta-2
-- Not compatible with earlier versions of GB Studio. These plugins implement `ScriptValue` fields, introduced in GBS4
-
-\
-GB Studio 4 is still in development.\
-These plugins are subject to change to ensure they work with the official release of GBS4, whenever that happens.\
-\
 Many thanks to the [GB Studio Discord Community](https://discord.gg/bxerKnc) for sharing their knowledge and code.
 #
 
@@ -116,6 +109,32 @@ A simple event interface for GBVM Operation `VM_OVERLAY_SET_SUBMAP_EX`\
 - `Clear Script` : Selects which script to clear (`On Collision` | `On Exit Collision` | `Both` | `ALL`)
   
 <img width="552" alt="Screenshot 2024-06-14 at 4 57 33 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/cb84bd38-4717-4b15-885f-e86358a84844">
+
+#
+
+## UI Elements+ 
+#### A collection of event and engine plugins for UI Elements
+
+### Set Cursor
+#### Change UI Cursor at runtime
+
+**Input Parameters:**
+- `Cursor` : 8x8 tileset to use as UI cusror
+
+<img width="613" alt="Screenshot 2024-10-25 at 9 04 37 AM" src="https://github.com/user-attachments/assets/e5e1aea9-72e2-4063-ac19-2dcd56333e73">
+
+#
+
+### Text Dialogue Avatar+
+#### Extends the default dialogue event to include positionable avatars
+
+**Input Parameters:**
+- `Avatar Position` : Places avatar on left or ride side of dialogue text
+- `Avatar Offset X` : Adjust position of avatar X in tiles
+- `Avatar Offset Y` : Adjust position of avatar Y in tiles
+
+<img width="614" alt="Screenshot 2024-10-25 at 8 59 09 AM" src="https://github.com/user-attachments/assets/7e55c61a-8e79-42e4-b05e-8a769df63b0a">
+
 
 #
 
