@@ -13,9 +13,6 @@ export const fields = [
         label: "⚠️ Changes will be reset when scrolled offscreen!"
     },
     {
-        label: "⚠️ Changes to the background will repeat every 32 tiles!",
-    },
-    {
         type: "group",
         fields: [
             {
