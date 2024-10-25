@@ -65,6 +65,8 @@ Supports all tile types, including slopes and spare tiles. Supports tile stackin
 ### Submap Background
 #### Copies a region of background tiles to another position on the background
 
+Changes to the background will be reset when scrolled off screen!
+
 **Input Parameters:**
 - `Source X` : X position of the tile to copy
 - `Source Y` : Y position of the tile to copy
@@ -73,7 +75,7 @@ Supports all tile types, including slopes and spare tiles. Supports tile stackin
 - `Submap Width` : Width of the submap in tiles
 - `Submap Height` : Height of the submap in tiles
 
-<img width="516" alt="Screenshot 2024-06-14 at 4 16 28 PM" src="https://github.com/mikeleisz/gud_gbs_plugins/assets/2031008/800c9430-8e10-4e4b-969a-a72c56e13260">
+<img width="614" alt="Screenshot 2024-10-25 at 3 45 13 PM" src="https://github.com/user-attachments/assets/384e1805-0231-4129-9a3d-6360aa38afbb">
 
 #
 
@@ -130,6 +132,39 @@ A simple event interface for GBVM Operation `VM_OVERLAY_SET_SUBMAP_EX`\
 ## UI Elements+ 
 #### A collection of event and engine plugins for UI Elements
 
+Made in collaboration with [Gumpy Function](https://www.gumpyfunction.com)
+
+#
+
+### Invert Dialogue Background Fill Color
+
+Inverts the text background fill color in dialogue boxes to suit ASCII sheets with white text on black background. Typically, GBS users need to place `\007\002` in front of text in a dialogue box to invert the background fill colors; this plugin will ensure you no longer need to put that before all your text throughout an entire project.
+
+**NOTE:** This will not effect the background fill color in the overlay, only when drawing dialogue using a Display Dialogue event.
+
+![364571913-7bbb984e-6458-44f8-8344-fd76c719e691](https://github.com/user-attachments/assets/eeffcff1-98f1-4ea4-ad3a-0c71e2f475f7)\
+<sub>Default background fill (left) and background fill with Invert Dialogue Background Fill Color Plugin applied (right)</sub>
+
+#### How to Use
+
+Enable or Disable the Plugin in your Project Settings under 'UI Elements+'. You can also toggle it on or off in a script using the 'Engine Field Update' event.
+
+![365335212-4c577d66-b688-4c3a-8909-e7a9f19f6ecc](https://github.com/user-attachments/assets/4cbb3bb6-8af3-460a-adeb-bbc089f0a9ce)
+
+#
+
+### Emote Bubble Duration
+
+Change the amount of time the Emote Bubble stays on screen for (in frames).
+
+![379011790-0dc9d8a4-8afb-4dac-9f62-7b1a8d1b7e93](https://github.com/user-attachments/assets/f3e53c23-a55c-47ce-80ad-636071764e40)
+
+#### How to Use
+
+Set the time in frames in the Project Settings under 'UI Elements+', or set the value in a script using the 'Engine Field Update' event.
+
+#
+
 ### Set Cursor
 #### Change UI Cursor at runtime
 
@@ -149,6 +184,5 @@ A simple event interface for GBVM Operation `VM_OVERLAY_SET_SUBMAP_EX`\
 - `Avatar Offset Y` : Adjust position of avatar Y in tiles
 
 <img width="614" alt="Screenshot 2024-10-25 at 8 59 09 AM" src="https://github.com/user-attachments/assets/7e55c61a-8e79-42e4-b05e-8a769df63b0a">
-
 
 #
