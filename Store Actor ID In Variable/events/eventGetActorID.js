@@ -21,11 +21,12 @@ export const fields = [
 ];  
 
 export const compile = (input, helpers) => {
-	const {_stackPushReference, _setVariable, _stackPop, getActorIndex } = helpers;
+	const {_setVariable, _stackPop, setActorId, _stackPush, _declareLocal } = helpers;
 
-	const actorIndex = getActorIndex(input.actorId);
+	const tmp0 = _declareLocal("tmp0", 1, true);
+  	setActorId(tmp0, input.actorId);
 
-	_stackPushReference(actorIndex);
+	_stackPush(tmp0);
 	_setVariable(input.target, ".ARG0");
 	_stackPop(1);
 };

@@ -47,7 +47,6 @@ const fields = [
     {
         key: "avatarId",
         type: "avatar",
-        // toggleLabel: l10n("FIELD_ADD_TEXT_AVATAR"), // remove add avatar toggle...
         label: l10n("FIELD_TEXT_AVATAR"),
         description: l10n("FIELD_TEXT_AVATAR_DESC"),
         defaultValue: "",
@@ -646,10 +645,7 @@ const compile = (input, helpers) => {
     const textBoxY = renderOnTop ? 0 : 18 - textBoxHeight;
     const x = decOct(Math.max(1, 1 + textX + (avatarId && input.avatarPos == "left" ? 2 : 0)));
     const y = decOct(Math.max(1, 1 + textY));
-    let textPosSequence =
-        textX !== 1 || textY !== 1 ? `\\003\\${x}\\${y}` : "";
-    
-    textPosSequence = `\\003\\${x}\\${y}`;
+    const textPosSequence = `\\003\\${x}\\${y}`;
 
     _addComment("Text Dialogue");
 
