@@ -1,13 +1,13 @@
 # Gud GBS Plugins
-### A collection of plugins for GB Studio 4+
+**A collection of plugins for GB Studio 4+**
 
 Many thanks to the [GB Studio Discord Community](https://discord.gg/bxerKnc) for sharing their knowledge and code.
 #
 
 ## Actor Plugins
 
-### Call Actor OnHit Script
-#### Calls the OnHit Scripts of a selected actor
+### Call Actor Hit Script
+**Calls the OnHit Scripts of a selected actor**
 
 Also works for the player actor.\
 \
@@ -19,8 +19,20 @@ Also works for the player actor.\
 
 #
 
+### Set Actor Collision Group
+**Set the collision group of a selected actor**
+
+Will do nothing if Player is selected.
+
+**Input Parameters:**
+- `Collision Group` : Collision group to assign to actor
+
+<img width="625" alt="Screenshot 2024-11-07 at 10 37 06 AM" src="https://github.com/user-attachments/assets/1960d534-ac52-45c3-b725-7fae2dcb90d1">
+
+# 
+
 ### Store Actor ID In Variable
-#### Stores the ID of the selected actor into a target variable
+**Stores the ID of the selected actor into a target variable**
 
 Useful for targeting specific actors in GBVM operations or an engine editing context.\
 \
@@ -33,8 +45,20 @@ Useful for targeting specific actors in GBVM operations or an engine editing con
 #
 ## Collision Data Plugins
 
+### Assign Tile Type To Solid Group
+**Assign a Collision Tile Type to Togglable Solid Group**
+
+Adds a togglable solid group that can be assigned to Ladders or one of the Extra Collision Tile Types (0x80 - 0xF0). Works with Platformer+.
+
+**Input Parameters:**
+- `Collision Tile Type` : Tile Type to be assigned to Solid Tile Group
+
+<img width="625" alt="Screenshot 2024-11-07 at 10 37 57 AM" src="https://github.com/user-attachments/assets/5f11467a-ff18-4faa-8062-e81b008ec946">
+
+#
+
 ### If Collision Data At Tile
-#### Checks a tile for a selected collision mask and executes events
+**Checks a tile for a selected collision mask and executes events**
 
 Supports all tile types, including slopes and spare tiles. Supports tile stacking.
 
@@ -49,7 +73,7 @@ Supports all tile types, including slopes and spare tiles. Supports tile stackin
 #
 
 ### Store Collision Data In Variable
-#### Stores the collision data of a tile into a target variable
+**Stores the collision data of a tile into a target variable**
 
 **Input Parameters:**
 - `Tile X` : X position of the target tile
@@ -60,10 +84,28 @@ Supports all tile types, including slopes and spare tiles. Supports tile stackin
 
 #
 
+## Scene Plugins
+
+### Call Scene Init
+**Calls `OnInit` Script for Current Scene and all Actors in Current Scene**
+
+GBS bundles Actor and Scene `OnInit` scripts. Both will be called. This is a limitation of the engine.
+
+<img width="624" alt="Screenshot 2024-11-07 at 10 37 14 AM" src="https://github.com/user-attachments/assets/6947e932-ddfc-4a61-a775-fd4f3d9954f7">
+
+#
+
 ## Screen Plugins
 
+### Scanline FX
+**An example plugin demonstrating custom ISR effects**
+
+This plugin demonstrates how custom ISR handlers can be setup to create scanline FX in GBS. It is example code, not a complete ready-made solution.
+
+#
+
 ### Submap Background
-#### Copies a region of background tiles to another position on the background
+**Copies a region of background tiles to another position on the background**
 
 Changes to the background will be reset when scrolled off screen!
 
@@ -80,7 +122,7 @@ Changes to the background will be reset when scrolled off screen!
 #
 
 ### Submap Overlay
-#### Copies a region of background tiles to the overlay
+**Copies a region of background tiles to the overlay**
 
 A simple event interface for GBVM Operation `VM_OVERLAY_SET_SUBMAP_EX`\
 \
@@ -97,7 +139,7 @@ A simple event interface for GBVM Operation `VM_OVERLAY_SET_SUBMAP_EX`\
 #
 
 ## TopDown Tile Collisions
-#### An engine plugin that allows scripts to be automatically executed when colliding with tiles in TopDown
+**An engine plugin that allows scripts to be automatically executed when colliding with tiles in TopDown**
 
 - Based on Platformer+ State Scripts by [Hauntology](https://hauntology.itch.io)
 - Replaces TopDown scene type
@@ -106,7 +148,7 @@ A simple event interface for GBVM Operation `VM_OVERLAY_SET_SUBMAP_EX`\
 #
 
 ### Attach TopDown Tile Collision Script
-#### Attach a script to collision with a selected tile type
+**Attach a script to collision with a selected tile type**
 
 **Input Parameters:**
 - `Collision Type` : Collision tile type to attach script to
@@ -119,7 +161,7 @@ A simple event interface for GBVM Operation `VM_OVERLAY_SET_SUBMAP_EX`\
 #
 
 ### Clear TopDown Tile Collision Script
-#### Clear the script currently attached to a collision tile type
+**Clear the script currently attached to a collision tile type**
 
 **Input Parameters:**
 - `Collision Type` : Collision tile type to remove script from
@@ -130,7 +172,7 @@ A simple event interface for GBVM Operation `VM_OVERLAY_SET_SUBMAP_EX`\
 #
 
 ## UI Elements+ 
-#### A collection of event and engine plugins for UI Elements
+**A collection of event and engine plugins for UI Elements**
 
 Made in collaboration with [Gumpy Function](https://www.gumpyfunction.com)
 
@@ -166,7 +208,7 @@ Set the time in frames in the Project Settings under 'UI Elements+', or set the 
 #
 
 ### Set Cursor
-#### Change UI Cursor at runtime
+**Change UI Cursor at runtime**
 
 **Input Parameters:**
 - `Cursor` : 8x8 tileset to use as UI cusror
@@ -176,7 +218,7 @@ Set the time in frames in the Project Settings under 'UI Elements+', or set the 
 #
 
 ### Text Dialogue Avatar+
-#### Extends the default dialogue event to include positionable avatars
+**Extends the default dialogue event to include positionable avatars**
 
 **Input Parameters:**
 - `Avatar Position` : Places avatar on left or ride side of dialogue text
