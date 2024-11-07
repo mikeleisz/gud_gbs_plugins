@@ -6,7 +6,11 @@ export const subGroups = {
 	"Gud GBS Plugins": "SCENE"
 };
 
-export const fields = [];
+export const fields = [
+    {
+        label: "Call Init Script for Current Scene and all Actors in Current Scene"
+    }
+];
 
 export const compile = (input, helpers) => {
     const { _addComment, _callNative } = helpers;
