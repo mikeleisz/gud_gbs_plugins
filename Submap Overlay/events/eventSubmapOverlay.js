@@ -1,5 +1,3 @@
-const scriptValueHelpers = require("shared/lib/scriptValue/helpers");
-
 export const id = "GUD_EVENT_SUBMAP_OVERLAY";
 export const name = "Submap Overlay";
 export const groups = ["Gud GBS Plugins", "EVENT_GROUP_SCREEN"];
@@ -106,45 +104,25 @@ export const fields = [
 ];
 
 export const compile = (input, helpers) => {
-    const { appendRaw, _stackPush, _stackPop, _declareLocal, _performFetchOperations, _performValueRPN, _rpn } = helpers;
-
-    const [rpnOpsOverlayX, fetchOpsOverlayX] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.overlayX));
-    const [rpnOpsOverlayY, fetchOpsOverlayY] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.overlayY));
-    const [rpnOpsSceneX, fetchOpsSceneX] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.bgX));
-    const [rpnOpsSceneY, fetchOpsSceneY] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.bgY));
-    const [rpnOpsWidth, fetchOpsWidth] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.w));
-    const [rpnOpsHeight, fetchOpsHeight] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.h));
+    const { appendRaw, _stackPush, _stackPop, _declareLocal, variableSetToScriptValue } = helpers;
 
     const overlayX = _declareLocal("overlay_x", 1, true);
+    variableSetToScriptValue(overlayX, input.overlayX);
+
     const overlayY = _declareLocal("overlay_y", 1, true);
+    variableSetToScriptValue(overlayY, input.overlayY);
+
     const bgX = _declareLocal("bg_x", 1, true);
+    variableSetToScriptValue(bgX, input.bgX);
+
     const bgY = _declareLocal("bg_y", 1, true);
+    variableSetToScriptValue(bgY, input.bgY);
+
     const width = _declareLocal("width", 1, true);
+    variableSetToScriptValue(width, input.w);
+
     const height = _declareLocal("height", 1, true);
-
-    const localsLookup = _performFetchOperations([
-      ...fetchOpsOverlayX,
-      ...fetchOpsOverlayY,
-      ...fetchOpsSceneX,
-      ...fetchOpsSceneY,
-      ...fetchOpsWidth,
-      ...fetchOpsHeight,
-    ]);
-
-    const rpn = _rpn();
-    _performValueRPN(rpn, rpnOpsOverlayX, localsLookup);
-    rpn.refSet(overlayX);
-    _performValueRPN(rpn, rpnOpsOverlayY, localsLookup);
-    rpn.refSet(overlayY);
-    _performValueRPN(rpn, rpnOpsSceneX, localsLookup);
-    rpn.refSet(bgX);
-    _performValueRPN(rpn, rpnOpsSceneY, localsLookup);
-    rpn.refSet(bgY);
-    _performValueRPN(rpn, rpnOpsWidth, localsLookup);
-    rpn.refSet(width);
-    _performValueRPN(rpn, rpnOpsHeight, localsLookup);
-    rpn.refSet(height);
-    rpn.stop();
+    variableSetToScriptValue(height, input.h);
 
     _stackPush(overlayX);
     _stackPush(overlayY);

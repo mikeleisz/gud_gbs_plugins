@@ -1,5 +1,3 @@
-const scriptValueHelpers = require("shared/lib/scriptValue/helpers");
-
 export const id = "GUD_EVENT_GET_COLLISION_AT_TILE";
 export const name = "Store Collision Data In Variable";
 export const groups = ["Gud GBS Plugins", "Collision"];
@@ -53,23 +51,13 @@ export const fields = [
 ];
 
 export const compile = (input, helpers) => {
-    const { _stackPushConst, _stackPush, _callNative, _stackPop, _setVariable, _declareLocal, _performFetchOperations, _performValueRPN, _rpn } = helpers;
+    const { _stackPushConst, _stackPush, _callNative, _stackPop, _setVariable, _declareLocal, variableSetToScriptValue } = helpers;
 
-    const [rpnOpsX, fetchOpsX] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.tx));
-    const [rpnOpsY, fetchOpsY] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.ty));
     const tileX = _declareLocal("tile_x", 1, true);
-    const tileY = _declareLocal("tile_y", 1, true);
+    variableSetToScriptValue(tileX, input.tx);
 
-    const localsLookup = _performFetchOperations([
-      ...fetchOpsX,
-      ...fetchOpsY,
-    ]);
-    const rpn = _rpn();
-    _performValueRPN(rpn, rpnOpsX, localsLookup);
-    rpn.refSet(tileX);
-    _performValueRPN(rpn, rpnOpsY, localsLookup);
-    rpn.refSet(tileY);
-    rpn.stop();
+    const tileY = _declareLocal("tile_y", 1, true);
+    variableSetToScriptValue(tileX, input.ty);
 
     _stackPushConst(0);
     _stackPush(tileY);

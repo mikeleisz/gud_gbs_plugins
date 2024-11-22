@@ -1,5 +1,3 @@
-const scriptValueHelpers = require("shared/lib/scriptValue/helpers");
-
 export const id = "GUD_EVENT_SUBMAP_BG";
 export const name = "Submap Background";
 export const groups = ["Gud GBS Plugins", "EVENT_GROUP_SCREEN"];
@@ -104,45 +102,25 @@ export const fields = [
 ];
 
 export const compile = (input, helpers) => {
-    const { _stackPush, _callNative, _stackPop, _declareLocal, _performFetchOperations, _performValueRPN, _rpn } = helpers;
-
-    const [rpnOpsSourceX, fetchOpsSourceX] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.srcX));
-    const [rpnOpsSourceY, fetchOpsSourceY] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.srcY));
-    const [rpnOpsDestX, fetchOpsDestX] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.destX));
-    const [rpnOpsDestY, fetchOpsDestY] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.destY));
-    const [rpnOpsWidth, fetchOpsWidth] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.w));
-    const [rpnOpsHeight, fetchOpsHeight] = scriptValueHelpers.precompileScriptValue(scriptValueHelpers.optimiseScriptValue(input.h));
+    const { _stackPush, _callNative, _stackPop, _declareLocal, variableSetToScriptValue } = helpers;
 
     const sourceX = _declareLocal("source_x", 1, true);
+    variableSetToScriptValue(sourceX, input.srcX);
+
     const sourceY = _declareLocal("source_y", 1, true);
+    variableSetToScriptValue(sourceY, input.srcY);
+
     const destX = _declareLocal("dest_x", 1, true);
+    variableSetToScriptValue(destX, input.destX);
+
     const destY = _declareLocal("dest_y", 1, true);
+    variableSetToScriptValue(destY, input.destY);
+
     const width = _declareLocal("width", 1, true);
+    variableSetToScriptValue(width, input.w);
+
     const height = _declareLocal("height", 1, true);
-
-    const localsLookup = _performFetchOperations([
-      ...fetchOpsSourceX,
-      ...fetchOpsSourceY,
-      ...fetchOpsDestX,
-      ...fetchOpsDestY,
-      ...fetchOpsWidth,
-      ...fetchOpsHeight,
-    ]);
-
-    const rpn = _rpn();
-    _performValueRPN(rpn, rpnOpsSourceX, localsLookup);
-    rpn.refSet(sourceX);
-    _performValueRPN(rpn, rpnOpsSourceY, localsLookup);
-    rpn.refSet(sourceY);
-    _performValueRPN(rpn, rpnOpsDestX, localsLookup);
-    rpn.refSet(destX);
-    _performValueRPN(rpn, rpnOpsDestY, localsLookup);
-    rpn.refSet(destY);
-    _performValueRPN(rpn, rpnOpsWidth, localsLookup);
-    rpn.refSet(width);
-    _performValueRPN(rpn, rpnOpsHeight, localsLookup);
-    rpn.refSet(height);
-    rpn.stop();
+    variableSetToScriptValue(height, input.h);
 
     _stackPush(height);
     _stackPush(width);
