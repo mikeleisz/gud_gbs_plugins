@@ -53,15 +53,16 @@ export const fields = [
 export const compile = (input, helpers) => {
     const { _stackPushConst, _stackPush, _callNative, _stackPop, _setVariable, _declareLocal, variableSetToScriptValue } = helpers;
 
-    const tileX = _declareLocal("tile_x", 1, true);
-    variableSetToScriptValue(tileX, input.tx);
+    _stackPushConst(0);
 
     const tileY = _declareLocal("tile_y", 1, true);
     variableSetToScriptValue(tileX, input.ty);
-
-    _stackPushConst(0);
     _stackPush(tileY);
+    
+    const tileX = _declareLocal("tile_x", 1, true);
+    variableSetToScriptValue(tileX, input.tx);
     _stackPush(tileX);
+
     _callNative("get_collision_at_tile");
     _setVariable(input.target, ".ARG2");
     _stackPop(3);

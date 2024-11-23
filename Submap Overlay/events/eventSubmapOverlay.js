@@ -108,27 +108,26 @@ export const compile = (input, helpers) => {
 
     const overlayX = _declareLocal("overlay_x", 1, true);
     variableSetToScriptValue(overlayX, input.overlayX);
+    _stackPush(overlayX);
 
     const overlayY = _declareLocal("overlay_y", 1, true);
     variableSetToScriptValue(overlayY, input.overlayY);
-
-    const bgX = _declareLocal("bg_x", 1, true);
-    variableSetToScriptValue(bgX, input.bgX);
-
-    const bgY = _declareLocal("bg_y", 1, true);
-    variableSetToScriptValue(bgY, input.bgY);
+    _stackPush(overlayY);
 
     const width = _declareLocal("width", 1, true);
     variableSetToScriptValue(width, input.w);
+    _stackPush(width);
 
     const height = _declareLocal("height", 1, true);
     variableSetToScriptValue(height, input.h);
-
-    _stackPush(overlayX);
-    _stackPush(overlayY);
-    _stackPush(width);
     _stackPush(height);
+
+    const bgX = _declareLocal("bg_x", 1, true);
+    variableSetToScriptValue(bgX, input.bgX);
     _stackPush(bgX);
+
+    const bgY = _declareLocal("bg_y", 1, true);
+    variableSetToScriptValue(bgY, input.bgY);
     _stackPush(bgY);
 
     appendRaw(`VM_OVERLAY_SET_SUBMAP_EX .ARG5`);

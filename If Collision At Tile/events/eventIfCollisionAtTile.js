@@ -120,11 +120,23 @@ export const compile = (input, helpers) => {
             compileEvents } = helpers;
 
 
-    const tileX = _declareLocal("tile_x", 1, true);
-    variableSetToScriptValue(tileX, input.tx);
+    // local for storing stack result
+    const result = _declareLocal("result", 1, true);
+
+    _stackPushConst(input.tileMask);
 
     const tileY = _declareLocal("tile_y", 1, true);
     variableSetToScriptValue(tileY, input.ty);
+    _stackPush(tileY);
+    
+    const tileX = _declareLocal("tile_x", 1, true);
+    variableSetToScriptValue(tileX, input.tx);
+    _stackPush(tileX);
+    
+    _callNative("if_collision_at_tile");
+    // store results into local
+    _set(result, ".ARG2");
+    _stackPop(3);
 
     // if, else events
     const truePath = input.true;
@@ -132,18 +144,6 @@ export const compile = (input, helpers) => {
     // if, else labels
     const trueLabel = getNextLabel();
     const falseLabel = getNextLabel();
-
-    // local for storing stack result
-    const result = _declareLocal("result", 1, true);
-
-    // push args and call
-    _stackPushConst(input.tileMask);
-    _stackPush(tileY);
-    _stackPush(tileX);
-    _callNative("if_collision_at_tile");
-    // store results into local
-    _set(result, ".ARG2");
-    _stackPop(3);
 
     // branch and compile events
     _ifConst(".EQ", result, 1, trueLabel, 0);

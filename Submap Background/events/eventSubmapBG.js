@@ -104,29 +104,28 @@ export const fields = [
 export const compile = (input, helpers) => {
     const { _stackPush, _callNative, _stackPop, _declareLocal, variableSetToScriptValue } = helpers;
 
-    const sourceX = _declareLocal("source_x", 1, true);
-    variableSetToScriptValue(sourceX, input.srcX);
-
-    const sourceY = _declareLocal("source_y", 1, true);
-    variableSetToScriptValue(sourceY, input.srcY);
-
-    const destX = _declareLocal("dest_x", 1, true);
-    variableSetToScriptValue(destX, input.destX);
-
-    const destY = _declareLocal("dest_y", 1, true);
-    variableSetToScriptValue(destY, input.destY);
-
-    const width = _declareLocal("width", 1, true);
-    variableSetToScriptValue(width, input.w);
-
     const height = _declareLocal("height", 1, true);
     variableSetToScriptValue(height, input.h);
-
     _stackPush(height);
+    
+    const width = _declareLocal("width", 1, true);
+    variableSetToScriptValue(width, input.w);
     _stackPush(width);
+    
+    const destY = _declareLocal("dest_y", 1, true);
+    variableSetToScriptValue(destY, input.destY);
     _stackPush(destY);
+    
+    const destX = _declareLocal("dest_x", 1, true);
+    variableSetToScriptValue(destX, input.destX);
     _stackPush(destX);
+    
+    const sourceY = _declareLocal("source_y", 1, true);
+    variableSetToScriptValue(sourceY, input.srcY);
     _stackPush(sourceY);
+    
+    const sourceX = _declareLocal("source_x", 1, true);
+    variableSetToScriptValue(sourceX, input.srcX);
     _stackPush(sourceX);
     
     _callNative("background_submap");
