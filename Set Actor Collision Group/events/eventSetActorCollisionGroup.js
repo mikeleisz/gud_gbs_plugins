@@ -8,6 +8,12 @@ export const subGroups = {
 	"Gud GBS Plugins": "ACTOR"
 };
 
+export const autoLabel = (fetchArg) => {
+	const actor = fetchArg("actorId");
+	const collisionGroup = fetchArg("collisionGroup");
+    return `Set ${actor} Collision Group: ${collisionGroup}`;
+};
+
 export const fields = [
     {
         key: "actorId",

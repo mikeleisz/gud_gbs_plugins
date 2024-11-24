@@ -56,7 +56,7 @@ export const compile = (input, helpers) => {
     _stackPushConst(0);
 
     const tileY = _declareLocal("tile_y", 1, true);
-    variableSetToScriptValue(tileX, input.ty);
+    variableSetToScriptValue(tileY, input.ty);
     _stackPush(tileY);
     
     const tileX = _declareLocal("tile_x", 1, true);

@@ -11,6 +11,9 @@ export const fields = [
         label: "⚠️ Changes will be reset when scrolled offscreen!"
     },
     {
+        type: "break"
+    },
+    {
         type: "group",
         fields: [
             {

@@ -1,9 +1,15 @@
 export const id = "GUD_EVENT_ACTOR_ON_HIT";
-export const name = "Call Actor OnHit Script";
+export const name = "Call Actor Hit Script";
 export const groups = ["Gud GBS Plugins", "EVENT_GROUP_ACTOR"];
 export const subGroups = {
 	EVENT_GROUP_ACTOR: "EVENT_GROUP_SCRIPT",
 	"Gud GBS Plugins": "ACTOR"
+};
+
+export const autoLabel = (fetchArg, args) => {
+	const actor = fetchArg("targetActor");
+    const collisionGroup = fetchArg("collisionGroup");
+	return `Call ${actor} Hit Script: ${collisionGroup}`;
 };
 
 export const fields = [

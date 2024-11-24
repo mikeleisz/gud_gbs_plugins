@@ -7,10 +7,19 @@ export const subGroups = {
 };
 
 export const autoLabel = (fetchArg) => {
-	return `Set Palette At Tile`;
+	const x = fetchArg("x");
+    const y = fetchArg("y");
+    const palette = fetchArg("palette");
+    return `Set Palette (${palette}) At (${x}, ${y})`;
 };
 
 export const fields = [
+    {
+        label: "⚠️ Changes will be reset when scrolled offscreen!"
+    },
+    {
+        type: "break"
+    },
     {
         key: "x",
         label: "Tile X",

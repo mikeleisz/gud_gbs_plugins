@@ -7,7 +7,9 @@ export const subGroups = {
 };
 
 export const autoLabel = (fetchArg) => {
-	return `Get Palette At Tile`;
+	const x = fetchArg("x");
+	const y = fetchArg("y");
+    return `Get Palette At (${x}, ${y})`;
 };
 
 export const fields = [

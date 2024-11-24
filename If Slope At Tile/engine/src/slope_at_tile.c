@@ -5,8 +5,6 @@
 #include "collision.h"
 #include "vm.h"
 
-#include "data/game_globals.h"
-
 extern UBYTE collision_bank;
 extern unsigned char *collision_ptr;
 extern UBYTE image_tile_width;
@@ -59,8 +57,4 @@ void if_slope_at_tile(SCRIPT_CTX * THIS) OLDCALL BANKED {
         // o.o.b.
         *(UBYTE*)VM_REF_TO_PTR(FN_ARG3) = 0;
     }
-
-    script_memory[VAR_DEBUG_X] = tx;
-    script_memory[VAR_DEBUG_Y] = ty;
-    script_memory[VAR_DEBUG_VAL] = *(UBYTE*)VM_REF_TO_PTR(FN_ARG3);
 }

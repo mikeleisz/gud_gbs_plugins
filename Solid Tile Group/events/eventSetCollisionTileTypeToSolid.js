@@ -1,9 +1,33 @@
 export const id = "GUD_EVENT_SET_COLLISION_TILE_TYPE_TO_SOLID";
-export const name = "Assign Tile Type To Solid Group";
+export const name = "Set Solid Tile Group";
 export const groups = ["Gud GBS Plugins", "Collision"];
 export const subGroups = {
 	"Gud GBS Plugins": "COLLISION"
 };
+
+export const autoLabel = (fetchArg) => {
+	const tileType = fetchArg("tileMask");
+    if (tileType == 15) {
+        return `Turn Off Solid Tile Group`;
+    } else {
+        return `Assign ${tileTypeToName[tileType]} To Solid Group`;
+    }
+};
+
+const tileTypeToName = (() => {
+    return {
+        15: "Off",
+        16: "Ladder",
+        128: "Spare 8",
+        144: "Spare 9",
+        160: "Spare 10",
+        176: "Spare 11",
+        192: "Spare 12",
+        208: "Spare 13",
+        224: "Spare 14",
+        240: "Spare 15",
+    };
+})();
 
 export const fields = [
     {

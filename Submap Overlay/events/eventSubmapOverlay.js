@@ -11,6 +11,9 @@ export const fields = [
         label: "Copy a region of background tiles to the overlay"
     },
     {
+        type: "break"
+    },
+    {
         type: "group",
         fields: [
             {
