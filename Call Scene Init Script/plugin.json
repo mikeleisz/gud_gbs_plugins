@@ -1,0 +1,10 @@
+{
+  "type": "eventsPlugin",
+  "name": "Call Scene Init Script",
+  "author": "Mike Leisz",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Call init script for current scene and all actors in current scene",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}

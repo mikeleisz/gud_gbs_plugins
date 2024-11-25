@@ -1,0 +1,16 @@
+{
+  "version": "4.2.0-e4",
+
+  "fields": [    
+	{
+      "key": "emote_total_frames",
+      "label": "Emote Bubble Duration (frames)",
+      "group": "UI Elements+",
+      "type": "slider",
+      "cType": "UBYTE",
+      "defaultValue": 60,
+      "min": 1,
+      "max": 360
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "eventsPlugin",
+  "name": "Display Dialogue Avatar+",
+  "author": "Mike Leisz",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Extends the default dialogue event to support positionable avatars",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}

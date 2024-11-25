@@ -8,6 +8,9 @@ const fields = [].concat([
       "Select an 8x8 tileset to use as the cursor.",
   },
   {
+    type: "break"
+  },
+  {
     label: "Cursor",
     type: "tileset",
     key: "tilesetId",

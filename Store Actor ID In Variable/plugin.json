@@ -1,0 +1,10 @@
+{
+  "type": "eventsPlugin",
+  "name": "Store Actor ID In Variable",
+  "author": "Mike Leisz",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Store the ID of a selected actor in a target variable",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}

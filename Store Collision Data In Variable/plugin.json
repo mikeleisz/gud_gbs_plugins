@@ -1,0 +1,10 @@
+{
+  "type": "eventsPlugin",
+  "name": "Store Collision Data In Variable",
+  "author": "Mike Leisz",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Store the collision data of a specified tile in a target variable",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}

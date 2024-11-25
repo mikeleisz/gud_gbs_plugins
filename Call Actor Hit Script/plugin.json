@@ -1,0 +1,10 @@
+{
+  "type": "eventsPlugin",
+  "name": "Call Actor Hit Script",
+  "author": "Mike Leisz",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Call hit scripts of a selected actor",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}

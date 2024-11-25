@@ -1,0 +1,10 @@
+{
+  "type": "eventsPlugin",
+  "name": "Submap Overlay",
+  "author": "Mike Leisz",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Submap a region of background tiles to the overlay. A simple event interface for GBVM operation VM_OVERLAY_SET_SUBMAP_EX.",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}

@@ -117,6 +117,9 @@ const fields = [
         ]
     },
     {
+        type: "break"
+    },
+    {
         label: "Dialogue Preview will not display changes to Avatar position.",
         width: "100%",
         conditions: [

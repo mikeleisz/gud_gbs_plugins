@@ -1,0 +1,10 @@
+{
+  "type": "enginePlugin",
+  "name": "Solid Tile Group",
+  "author": "Mike Leisz",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Adds a togglable solid group that can be assigned to ladders or one of the extra/spare collision tile types (0x80 - 0xF0). Works with Platformer+. Replaces collision.h in engine.",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}

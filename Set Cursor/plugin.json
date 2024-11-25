@@ -1,0 +1,10 @@
+{
+  "type": "eventsPlugin",
+  "name": "Set Cursor",
+  "author": "Mike Leisz",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Change UI cursor at runtime from tileset",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}

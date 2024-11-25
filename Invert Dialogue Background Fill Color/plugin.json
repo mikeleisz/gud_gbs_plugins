@@ -1,0 +1,10 @@
+{
+  "type": "enginePlugin",
+  "name": "Invert Dialogue Background Fill Color (UI Elements+)",
+  "author": "Gumpy Function",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Inverts the text background fill color in dialogue boxes to suit ASCII sheets with white text on black background. Replaces \"ui.h\" and \"ui.c\" in engine.",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}

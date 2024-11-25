@@ -14,6 +14,7 @@
 
 extern LCD_isr_e scene_LCD_type;
 
+// put your custom scanline effect here!
 void scanline_isr(void) NONBANKED {
     while (STAT_REG & STATF_BUSY);
 
@@ -35,6 +36,7 @@ void scanline_isr(void) NONBANKED {
     }
 }
 
+// enable custom scanline effect
 void enable_scanline_fx(SCRIPT_CTX * THIS) OLDCALL BANKED {
     THIS;
 
@@ -53,6 +55,7 @@ void enable_scanline_fx(SCRIPT_CTX * THIS) OLDCALL BANKED {
     enable_interrupts();
 }
 
+// disable custom scanline effect
 void disable_scanline_fx(SCRIPT_CTX * THIS) OLDCALL BANKED {
     THIS;
     

@@ -1,0 +1,10 @@
+{
+  "type": "enginePlugin",
+  "name": "Emote Bubble Duration (UI Elements+)",
+  "author": "Gumpy Function",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Change the amount of time the Emote Bubble stays on screen for (in frames). Replaces \"vm_actor.c\" in engine.",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}

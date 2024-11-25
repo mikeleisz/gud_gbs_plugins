@@ -1,0 +1,10 @@
+{
+  "type": "eventsPlugin",
+  "name": "If Collision At Tile",
+  "author": "Mike Leisz",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Run scripts if selected collision data is found at a specified tile",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}
