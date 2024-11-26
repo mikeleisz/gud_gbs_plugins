@@ -1,9 +1,9 @@
 {
   "type": "eventsPlugin",
-  "name": "Set Actor Collision Group",
+  "name": "Submap Background",
   "author": "Mike Leisz",
   "url": "https://github.com/mikeleisz/gud_gbs_plugins",
-  "description": "Set the collision group of a selected actor",
+  "description": "Submap a region of background tiles to another position on the background. Changes will be overwritten when scrolled offscreen.",
   "license": "MIT",
   "version": "1.5.0",
   "gbsVersion": ">=4.2.0"

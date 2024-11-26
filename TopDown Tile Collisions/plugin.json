@@ -1,9 +1,9 @@
 {
-  "type": "eventsPlugin",
-  "name": "Palette At Tile",
+  "type": "enginePlugin",
+  "name": "TopDown Tile Collisions",
   "author": "Mike Leisz",
   "url": "https://github.com/mikeleisz/gud_gbs_plugins",
-  "description": "Get or set the palette at a specified tile",
+  "description": "An enhanced TopDown scene type that allows scripts to be automatically executed when colliding with tiles. Replaces the TopDown scene type.",
   "license": "MIT",
   "version": "1.5.0",
   "gbsVersion": ">=4.2.0"
