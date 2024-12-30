@@ -1,4 +1,35 @@
 {
   "version": "4.2.0-e4",
-  "fields": []
+  "fields": [
+    {
+      "key": "scanline_fx_start",
+      "label": "Scanline FX Start",
+      "group": "Scanline FX",
+      "type": "slider",
+      "cType": "UBYTE",
+      "defaultValue": 0,
+      "min": 0,
+      "max": 143
+    },
+    {
+      "key": "scanline_fx_end",
+      "label": "Scanline FX End",
+      "group": "Scanline FX",
+      "type": "slider",
+      "cType": "UBYTE",
+      "defaultValue": 143,
+      "min": 0,
+      "max": 143
+    },
+    {
+      "key": "scanline_fx_chunksize",
+      "label": "Scanline FX Chunk Size",
+      "group": "Scanline FX",
+      "type": "slider",
+      "cType": "UBYTE",
+      "defaultValue": 4,
+      "min": 1,
+      "max": 144
+    }
+  ]
 }
