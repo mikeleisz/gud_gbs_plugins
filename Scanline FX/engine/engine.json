@@ -9,7 +9,7 @@
       "cType": "UBYTE",
       "defaultValue": 0,
       "min": 0,
-      "max": 143
+      "max": 144
     },
     {
       "key": "scanline_fx_end",
@@ -17,9 +17,9 @@
       "group": "Scanline FX",
       "type": "slider",
       "cType": "UBYTE",
-      "defaultValue": 143,
+      "defaultValue": 144,
       "min": 0,
-      "max": 143
+      "max": 144
     },
     {
       "key": "scanline_fx_chunksize",
@@ -27,8 +27,8 @@
       "group": "Scanline FX",
       "type": "slider",
       "cType": "UBYTE",
-      "defaultValue": 4,
-      "min": 1,
+      "defaultValue": 2,
+      "min": 2,
       "max": 144
     }
   ]

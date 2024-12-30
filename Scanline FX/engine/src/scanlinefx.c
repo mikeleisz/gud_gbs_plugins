@@ -15,8 +15,8 @@
 extern LCD_isr_e scene_LCD_type;
 
 UBYTE scanline_fx_start = 0;
-UBYTE scanline_fx_end = 143;
-UBYTE scanline_fx_chunksize = 4;
+UBYTE scanline_fx_end = 144;
+UBYTE scanline_fx_chunksize = 2;
 
 // put your custom scanline effect here!
 void scanline_isr(void) NONBANKED {
@@ -28,11 +28,11 @@ void scanline_isr(void) NONBANKED {
         SCY_REG = draw_scroll_y;
     } else {
         // wobble between the above scanlines
-        SCX_REG = draw_scroll_x + (SIN((LYC_REG + game_time) * 4) >> 4);
+        SCX_REG = draw_scroll_x + (SIN((LYC_REG + game_time) * 2) >> 5);
         SCY_REG = draw_scroll_y;
     }
 
-    // increase LYC register by 2 (1 is too slow)
+    // increase LYC register by n (1 is too slow)
     LYC_REG += scanline_fx_chunksize;
 
     // if we at bottom of screen, reset the LYC register
