@@ -1,0 +1,17 @@
+{
+  "version": "4.2.0-e1",
+  "fields": [
+    {
+      "key": "timekeeper_running",
+      "label": "Autostart Timekeeper",
+      "group": "Timekeeper",
+      "type": "select",
+      "options": [
+        [0, "Disable"],
+        [1, "Enable"]
+      ],
+      "cType": "UBYTE",
+      "defaultValue": 0
+    }
+  ]
+}
