@@ -41,6 +41,7 @@ extern const UBYTE bootstrap_script[];
 extern void core_reset_hook(void); 
 
 extern void keep_time(void) BANKED;
+extern void timekeeper_events_init(void) BANKED;
 
 void core_reset(void) BANKED {
     // cleanup core stuff
@@ -57,6 +58,8 @@ void core_reset(void) BANKED {
     events_init(FALSE);
     timers_init(FALSE);
     music_init_events(FALSE);
+
+    timekeeper_events_init();
 }
 
 void process_VM(void) {
@@ -90,6 +93,7 @@ void process_VM(void) {
                 actors_handle_player_collision();
 
                 game_time++;
+
                 keep_time();
 
                 activate_shadow_OAM();
@@ -125,6 +129,9 @@ void process_VM(void) {
                         events_init(FALSE);
                         // reset music events
                         music_init_events(FALSE);
+
+                        timekeeper_events_init();
+
                         // load scene
                         far_ptr_t scene;
                         ReadBankedFarPtr(&scene, vm_exception_params_offset, vm_exception_params_bank);
