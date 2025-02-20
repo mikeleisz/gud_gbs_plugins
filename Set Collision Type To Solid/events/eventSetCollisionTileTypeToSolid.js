@@ -31,6 +31,12 @@ const tileTypeToName = (() => {
 
 export const fields = [
     {
+        label: "⚠️ Only one collision type can be assigned as solid at a time!"
+    },
+    {
+        type: "break"
+    },
+    {
         key: "tileMask",
         label: "Collision Tile Type",
         description: "Collision Tile Type",

@@ -1,0 +1,10 @@
+{
+  "type": "enginePlugin",
+  "name": "If Actor State",
+  "author": "Mike Leisz",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Conditionally execute scripts depending on the state of an actor.",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}
