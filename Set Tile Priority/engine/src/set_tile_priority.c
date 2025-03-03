@@ -15,7 +15,7 @@ void set_tile_priority(UINT8 x, UINT8 y, UINT8 priority) BANKED {
 
     attr = get_bkg_tile_xy(x, y);
 
-    switch (type) {
+    switch (priority) {
         case 0: // off
         attr &= 0x7F;
         break;
@@ -41,7 +41,7 @@ void vm_set_tile_priority(SCRIPT_CTX * THIS) OLDCALL BANKED {
     set_tile_priority(x, y, priority);
 }
 
-void vm_set_priority_area(SCRIPT_CTX * THIS) OLDCALL BANKED {
+void vm_set_tile_priority_area(SCRIPT_CTX * THIS) OLDCALL BANKED {
     uint8_t x = *(uint8_t*)VM_REF_TO_PTR(FN_ARG0);
     uint8_t y = *(uint8_t*)VM_REF_TO_PTR(FN_ARG1);
     uint8_t w = *(uint8_t*)VM_REF_TO_PTR(FN_ARG2);

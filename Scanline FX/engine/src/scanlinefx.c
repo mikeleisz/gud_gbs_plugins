@@ -35,7 +35,7 @@ void scanline_isr(void) NONBANKED {
     // increase LYC register by n (1 is too slow)
     LYC_REG += scanline_fx_chunksize;
 
-    // if we at bottom of screen, reset the LYC register
+    // if we're at bottom of screen, reset the LYC register
     if (LYC_REG >= 143) {
         LYC_REG = 0;
     }
