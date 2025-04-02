@@ -658,6 +658,8 @@ const compile = (input, helpers) => {
         _setConstMemUInt8("overlay_cut_scanline", textBoxHeight * 8 - 1);
     }
 
+    let dialogCount = 0;
+
     _input.forEach((text, textIndex) => {
         let avatarIndex = undefined;
         if (avatarId) {
@@ -708,14 +710,21 @@ const compile = (input, helpers) => {
 
         ///////////////////////////////////////////////////////////////////////////////
 
+        const dlgX = dialogCount == 0 ? 0 : 1;
+        const dlgY = dialogCount == 0 ? 0 : 1;
+        const dlgW = dialogCount == 0 ? 20 : 18;
+        const dlgH = dialogCount == 0 ? textBoxHeight : textBoxHeight - 2;
+        const dlgF = dialogCount == 0 ? showFrame : false;
+        dialogCount++;
+        
         if (clearPrevious) {
             _overlayClear(
-                0,
-                0,
-                20,
-                textBoxHeight,
+                dlgX,
+                dlgY,
+                dlgW,
+                dlgH,
                 ".UI_COLOR_WHITE",
-                showFrame,
+                dlgF,
                 false
             );
         }
