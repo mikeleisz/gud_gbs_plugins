@@ -1,9 +1,9 @@
 {
-  "type": "eventsPlugin",
+  "type": "enginePlugin",
   "name": "Palette At Tile",
   "author": "Mike Leisz",
   "url": "https://github.com/mikeleisz/gud_gbs_plugins",
-  "description": "Get or set the palette at a specified tile",
+  "description": "Get or set the palette at a specified tile.",
   "license": "MIT",
   "version": "1.5.0",
   "gbsVersion": ">=4.2.0"

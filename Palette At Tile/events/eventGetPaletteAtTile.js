@@ -14,6 +14,32 @@ export const autoLabel = (fetchArg) => {
 
 export const fields = [
     {
+        key: "layer",
+        label: "Layer",
+        description: "Layer",
+        type: "select",
+        options: [
+            [0, "Background"],
+            [1, "Overlay"],
+        ],
+        "defaultValue": 0
+    },
+    {
+        type: "break"
+    },
+    {
+        label: "⚠️ Background changes will be reset when scrolled offscreen!",
+        conditions: [
+			{
+				key: "layer",
+				ne: 1
+			}
+		]
+    },
+    {
+        type: "break"
+    },
+    {
         key: "x",
         label: "Tile X",
         description: "Tile X",
@@ -59,6 +85,8 @@ export const compile = (input, helpers) => {
 
     _stackPushConst(0);
 
+    _stackPushConst(input.layer);
+
     const tmpY = _declareLocal("tmp_y", 1, true);
     variableSetToScriptValue(tmpY, input.y);
     _stackPush(tmpY);
@@ -68,7 +96,7 @@ export const compile = (input, helpers) => {
     _stackPush(tmpX);
 
 	_callNative("vm_get_palette_at_tile");
-    _setVariable(input.save, ".ARG2");
+    _setVariable(input.save, ".ARG3");
 
-    _stackPop(3);
+    _stackPop(4);
 };

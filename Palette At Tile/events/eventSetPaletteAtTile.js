@@ -10,12 +10,32 @@ export const autoLabel = (fetchArg) => {
 	const x = fetchArg("x");
     const y = fetchArg("y");
     const palette = fetchArg("palette");
-    return `Set Palette (${palette}) At (${x}, ${y})`;
+    return `Set Palette (${palette}) At (${x}, ${y}) on ${layer == 0 ? "Background" : "Overlay"}`;
 };
 
 export const fields = [
     {
-        label: "⚠️ Changes will be reset when scrolled offscreen!"
+        key: "layer",
+        label: "Layer",
+        description: "Layer",
+        type: "select",
+        options: [
+            [0, "Background"],
+            [1, "Overlay"],
+        ],
+        "defaultValue": 0
+    },
+    {
+        type: "break"
+    },
+    {
+        label: "⚠️ Background changes will be reset when scrolled offscreen!",
+        conditions: [
+			{
+				key: "layer",
+				ne: 1
+			}
+		]
     },
     {
         type: "break"
@@ -59,11 +79,14 @@ export const compile = (input, helpers) => {
 	const { _callNative, 
             _addComment, 
             _declareLocal, 
-            _stackPush, 
+            _stackPush,
+            _stackPushConst,
             _stackPop, 
             variableSetToScriptValue } = helpers;
 	
     _addComment("Set Palette At Tile");
+
+    _stackPushConst(input.layer);
 
     const tmpPalette = _declareLocal("tmp_palette", 1, true);
     variableSetToScriptValue(tmpPalette, input.palette);
@@ -79,5 +102,5 @@ export const compile = (input, helpers) => {
 
 	_callNative("vm_set_palette_at_tile");
 
-    _stackPop(3);
+    _stackPop(4);
 };
