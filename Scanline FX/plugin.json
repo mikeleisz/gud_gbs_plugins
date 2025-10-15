@@ -1,0 +1,10 @@
+{
+  "type": "eventsPlugin",
+  "name": "Scanline FX Template",
+  "author": "Mike Leisz",
+  "url": "https://github.com/mikeleisz/gud_gbs_plugins",
+  "description": "Example plugin that demonstrates how to create custom scanline effects.",
+  "license": "MIT",
+  "version": "1.5.0",
+  "gbsVersion": ">=4.2.0"
+}
