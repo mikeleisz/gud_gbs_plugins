@@ -91,15 +91,6 @@ void ui_init(void) BANKED {
     text_in_speed               = 0;
     text_out_speed              = 0;
     text_ff_joypad              = TRUE;
-	
-	//text_bkg_fill               = TEXT_BKG_FILL_W;
-	
-		// added for Invert Dialogue Background Fill Color Plugin
-	if (text_invert_bkg_fill_color == 0) {
-		text_bkg_fill = TEXT_BKG_FILL_W;
-	} else {
-		text_bkg_fill = TEXT_BKG_FILL_B;
-	}
 
     ui_text_ptr                 = 0;
 
@@ -122,19 +113,12 @@ void ui_init(void) BANKED {
     text_scroll_addr            = GetWinAddr();
     text_scroll_width           = 20;
     text_scroll_height          = 8;
-	
-	//text_scroll_fill            = ui_white_tile;
-	
-			// added for Invert Dialogue Background Fill Color Plugin
-	if (text_invert_bkg_fill_color == 0) {
-		text_scroll_fill            = ui_white_tile;
-	} else {
-		text_scroll_fill            = ui_black_tile;
-	}
 
     text_sound_bank             = SFX_STOP_BANK;
 
-    ui_load_tiles();
+	// added for Invert Dialogue Background Fill Color Plugin
+	// Use helper function to set colors and load tiles
+    ui_update_fill_colors();
 
 #ifdef CGB
     overlay_priority            = S_PRIORITY;
@@ -148,12 +132,27 @@ void ui_load_tiles(void) BANKED {
     // load cursor
     SetBankedBkgData(ui_cursor_tile, 1, cursor_image, BANK(cursor_image));
 
-	//Edited for UI Elements+ Was the following: memset(vwf_tile_data, TEXT_BKG_FILL_B, 16);
-
-    memset(vwf_tile_data, text_bkg_fill, 16);
+	// added for Invert Dialogue Background Fill Color Plugin
+	// IMPORTANT: ui_white_tile and ui_black_tile must remain DISTINCT colors
+	// The plugin changes which one is used by default, not their actual colors
+    memset(vwf_tile_data, TEXT_BKG_FILL_W, 16);
     set_bkg_data(ui_white_tile, 1, vwf_tile_data);
-    memset(vwf_tile_data, text_bkg_fill, 16);
+    memset(vwf_tile_data, TEXT_BKG_FILL_B, 16);
     set_bkg_data(ui_black_tile, 1, vwf_tile_data);
+}
+
+// added for Invert Dialogue Background Fill Color Plugin
+// Runtime-callable function to update fill colors based on text_invert_bkg_fill_color flag
+void ui_update_fill_colors(void) BANKED {
+	if (text_invert_bkg_fill_color == 0) {
+		text_bkg_fill = TEXT_BKG_FILL_W;
+		text_scroll_fill = ui_white_tile;
+	} else {
+		text_bkg_fill = TEXT_BKG_FILL_B;
+		text_scroll_fill = ui_black_tile;
+	}
+	// Reload tiles to apply the color change to VRAM
+	ui_load_tiles();
 }
 
 void ui_draw_frame_row(void * dest, UBYTE tile, UBYTE width) OLDCALL;
@@ -311,14 +310,17 @@ UBYTE ui_draw_text_buffer_char(void) BANKED {
         current_text_speed = ui_time_masks[text_draw_speed];
         // save font and color global properties
         current_font_idx        = vwf_current_font_idx;
-		
+
 		// added for Invert Dialogue Background Fill Color Plugin
-	if (text_invert_bkg_fill_color == 0) {
-		text_bkg_fill = TEXT_BKG_FILL_W;
-	} else {
-		text_bkg_fill = TEXT_BKG_FILL_B;
-	}
-		
+		// Update colors based on current flag value (without reloading tiles)
+		if (text_invert_bkg_fill_color == 0) {
+			text_bkg_fill = TEXT_BKG_FILL_W;
+			text_scroll_fill = ui_white_tile;
+		} else {
+			text_bkg_fill = TEXT_BKG_FILL_B;
+			text_scroll_fill = ui_black_tile;
+		}
+
         current_text_bkg_fill   = text_bkg_fill;
         current_vwf_direction   = vwf_direction;
         current_text_ff_joypad  = text_ff_joypad;

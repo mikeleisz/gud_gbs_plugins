@@ -85,6 +85,7 @@ void ui_init(void) BANKED;
 void ui_update(void) NONBANKED;  // critical path, NONBANKED for speed
 
 void ui_load_tiles(void) BANKED;
+void ui_update_fill_colors(void) BANKED;  // added for Invert Dialogue Background Fill Color Plugin
 
 void ui_set_start_tile(UBYTE start_tile, UBYTE start_tile_bank) BANKED;
 
