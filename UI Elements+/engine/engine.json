@@ -1,0 +1,28 @@
+{
+  "version": "4.2.0-e1",
+
+  "fields": [    
+    {
+      "key": "text_invert_bkg_fill_color",
+      "label": "Invert Variable Width Background Text Fill Color",
+      "group": "UI Elements+",
+      "type": "select",
+      "options": [
+        [0, "Disable"],
+        [1, "Enable"]
+      ],
+      "cType": "UBYTE",
+      "defaultValue": 0
+    },
+	{
+      "key": "emote_total_frames",
+      "label": "Emote Bubble Duration (frames)",
+      "group": "UI Elements+",
+      "type": "slider",
+      "cType": "UBYTE",
+      "defaultValue": 60,
+      "min": 1,
+      "max": 360
+    }
+  ]
+}
